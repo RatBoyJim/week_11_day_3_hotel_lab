@@ -9,6 +9,7 @@ public class HotelTest {
     private Bedroom bedroom;
     private ConferenceRoom conferenceRoom;
     private Guest guest;
+    private Booking booking;
 
     @Before
     public void setUp(){
@@ -16,6 +17,7 @@ public class HotelTest {
         bedroom = new Bedroom(100, 2, RoomType.DOUBLE);
         conferenceRoom = new ConferenceRoom("Conference Room A", 50);
         guest = new Guest("Tom Nook");
+
     }
 
     @Test
@@ -73,6 +75,18 @@ public class HotelTest {
             hotel.addGuestToConferenceRoom(conferenceRoom, guest);
             hotel.removeGuestFromRoom(conferenceRoom);
             assertEquals(0, conferenceRoom.getGuestList());
+    }
+
+    @Test
+    public void canCreateBooking(){
+        booking = hotel.bookRoom(bedroom, 2);
+        assertEquals(2, booking.getNights());
+    }
+
+    @Test
+    public void canCreateBillForBooking(){
+        booking = hotel.bookRoom(bedroom, 2);
+        assertEquals(160, hotel.createBill(booking));
     }
 
 

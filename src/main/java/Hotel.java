@@ -49,4 +49,14 @@ public class Hotel {
         bedroom.removeGuest();
     }
 
+    public Booking bookRoom(Bedroom bedroom, int nights){
+        Booking booking = new Booking(bedroom, nights);
+        return booking;
+    }
+
+    public int createBill(Booking booking) {
+        Bedroom bedroom = booking.getBedroom();
+        return bedroom.getValueFromEnum() * booking.getNights();
+    }
+
 }

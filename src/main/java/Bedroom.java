@@ -38,6 +38,10 @@ public class Bedroom {
         this.guests.remove(0);
     }
 
+    public int getValueFromEnum(){
+        return this.room.getValue();
+    }
+
 
 
 }

@@ -24,6 +24,11 @@ public class BedroomTest {
     }
 
     @Test
+    public void bedroomHasRate(){
+        assertEquals(80, bedroom.getValueFromEnum());
+    }
+
+    @Test
     public void bedroomGuestsStartsEmpty(){
         assertEquals(0, bedroom.guestCount());
     }
