@@ -8,12 +8,14 @@ public class HotelTest {
     private Hotel hotel;
     private Bedroom bedroom;
     private ConferenceRoom conferenceRoom;
+    private Guest guest;
 
     @Before
     public void setUp(){
         hotel = new Hotel("CodeClan Towers");
         bedroom = new Bedroom(100, 2, RoomType.DOUBLE);
         conferenceRoom = new ConferenceRoom("Conference Room A", 50);
+        guest = new Guest("Tom Nook");
     }
 
     @Test
@@ -42,6 +44,38 @@ public class HotelTest {
         hotel.addConferenceRoom(conferenceRoom);
         assertEquals(1, hotel.getNumberOfConferenceRooms());
     }
+
+    @Test
+    public void canCheckInGuestToBedroom(){
+        hotel.addBedroom(bedroom);
+        hotel.addGuestToBedroom(bedroom, guest);
+        assertEquals(1, bedroom.guestCount());
+    }
+
+    @Test
+    public void canCheckInGuestToConferenceRoom(){
+        hotel.addConferenceRoom(conferenceRoom);
+        hotel.addGuestToConferenceRoom(conferenceRoom, guest);
+        assertEquals(1, conferenceRoom.getGuestList());
+    }
+
+    @Test
+    public void canCheckOutGuestFromBedroom(){
+        hotel.addBedroom(bedroom);
+        hotel.addGuestToBedroom(bedroom, guest);
+        hotel.removeGuestFromBedroom(bedroom);
+        assertEquals(0, bedroom.guestCount());
+    }
+
+    @Test
+    public void canCheckOutGuestFromRoom(){
+            hotel.addConferenceRoom(conferenceRoom);
+            hotel.addGuestToConferenceRoom(conferenceRoom, guest);
+            hotel.removeGuestFromRoom(conferenceRoom);
+            assertEquals(0, conferenceRoom.getGuestList());
+    }
+
+
 
 
 }
