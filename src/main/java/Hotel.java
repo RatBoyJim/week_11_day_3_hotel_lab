@@ -15,4 +15,20 @@ public class Hotel {
     public String getName(){
         return this.name;
     }
+
+    public int getNumberOfBedrooms(){
+        return this.bedrooms.size();
+    }
+
+    public int getNumberOfConferenceRooms(){
+        return this.conferenceRooms.size();
+    }
+
+    public void addBedroom(Bedroom bedroom){
+        this.bedrooms.add(bedroom);
+    }
+
+    public void addConferenceRoom(ConferenceRoom conferenceRoom){
+        this.conferenceRooms.add(conferenceRoom);
+    }
 }
