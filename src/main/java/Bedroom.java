@@ -26,6 +26,14 @@ public class Bedroom {
         return this.guests.size();
     }
 
+    public RoomType getRoomType(){
+        return this.room;
+    }
+
+    public void addGuestToGuests(Guest guest){
+        this.guests.add(guest);
+    }
+
 
 
 }

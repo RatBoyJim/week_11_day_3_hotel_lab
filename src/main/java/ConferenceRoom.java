@@ -24,4 +24,7 @@ public class ConferenceRoom {
         return this.guestList.size();
     }
 
+    public void addGuestToGuestList(Guest guest) {
+        this.guestList.add(guest);
+    }
 }
