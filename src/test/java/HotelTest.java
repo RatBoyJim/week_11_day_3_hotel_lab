@@ -89,6 +89,12 @@ public class HotelTest {
         assertEquals(160, hotel.createBill(booking));
     }
 
+    @Test
+    public void canCreateBillForBookingAgain(){
+        booking = hotel.bookRoom(bedroom, 5);
+        assertEquals(400, hotel.createBill(booking));
+    }
+
 
 
 
